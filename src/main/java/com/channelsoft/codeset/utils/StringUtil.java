@@ -18,7 +18,7 @@ import java.util.List;
  *
  * @author LuoHui
  */
-public class StringUtils {
+public class StringUtil {
 
     /**
      * 匹配字符串格式，是否是数字一个某个间隔符所组成的字符串

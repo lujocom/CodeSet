@@ -1,12 +1,18 @@
 package com.channelsoft.codeset.utils;
 
+import org.apache.commons.lang3.*;
 import org.apache.commons.logging.Log;
 import org.apache.commons.logging.LogFactory;
+import org.apache.http.HttpResponse;
+import org.apache.http.client.methods.HttpGet;
+import org.apache.http.util.EntityUtils;
+import org.htmlparser.Node;
+import org.htmlparser.NodeFilter;
+import org.htmlparser.Parser;
+import org.htmlparser.util.NodeList;
+import org.htmlparser.util.ParserException;
 
-import java.util.ArrayList;
-import java.util.List;
-import java.util.regex.Matcher;
-import java.util.regex.Pattern;
+import java.io.IOException;
 
 /**
  * <dl>
@@ -20,45 +26,70 @@ import java.util.regex.Pattern;
  * @author LuoHui
  */
 public class ParserHTMLUtil {
-
-    // 获取img标签正则
-    private static final String IMGURL_REG = "<img.*src=(.*?)[^>]*?>";
-    // 获取src路径的正则
-    private static final String IMGSRC_REG = "http:\"?(.*?)(\"|>|\\s+)";
-
     protected transient final static Log logger = LogFactory.getLog(ParserHTMLUtil.class);
+    private Parser parser;
 
-    /***
-     * 获取ImageUrl地址
-     *
-     * @param HTML
-     * @return
-     */
-    public static List<String> getImageUrl(String HTML) {
-        Matcher matcher = Pattern.compile(IMGURL_REG).matcher(HTML);
-        List<String> listImgUrl = new ArrayList<String>();
-        while (matcher.find()) {
-            listImgUrl.add(matcher.group());
-        }
-        return listImgUrl;
+    private NodeFilter nodeFilter;
+
+    private String html;
+
+    private String encode;
+
+    public static ParserHTMLUtil createParserHtmlUtil() {
+        return new ParserHTMLUtil();
     }
 
-    /***
-     * 获取ImageSrc地址
-     *
-     * @param listImageUrl
-     * @return
-     */
-    public static List<String> getImageSrc(List<String> listImageUrl) {
-        List<String> listImgSrc = new ArrayList<String>();
-        for (String image : listImageUrl) {
-            Matcher matcher = Pattern.compile(IMGSRC_REG).matcher(image);
-            while (matcher.find()) {
-                listImgSrc.add(matcher.group().substring(0, matcher.group().length() - 1));
+    public ParserHTMLUtil getHtml(String url, String encode) throws IOException {
+        HttpResponse response = HttpClientUtils.getResponse(url, null, HttpGet.METHOD_NAME);
+        if (response.getStatusLine().getStatusCode() == 200) {
+            this.html = EntityUtils.toString(response.getEntity(), encode);
+            this.encode = encode;
+        } else {
+            this.html = "";
+            this.encode = encode;
+            logger.debug("获取页面失败!!");
+        }
+        return this;
+    }
+
+    public ParserHTMLUtil createParser() {
+        if (StringUtils.isNotBlank(html)) {
+            this.parser = Parser.createParser(html, encode);
+        } else {
+            this.parser = null;
+        }
+        return this;
+    }
+
+    public ParserHTMLUtil createParser(String html, String encode) {
+        if (StringUtils.isNotBlank(html)) {
+            this.parser = Parser.createParser(html, encode);
+        } else {
+            this.parser = null;
+        }
+        return this;
+    }
+
+    public ParserHTMLUtil createNodeFilter(final String filterStr) {
+        this.nodeFilter = new NodeFilter() {
+            @Override
+            public boolean accept(Node node) {
+                if (node.getText().startsWith(filterStr)) {
+                    return true;
+                } else {
+                    return false;
+                }
             }
-        }
-        return listImgSrc;
+        };
+        return this;
     }
 
+    public NodeList getNodeListByFilter() throws ParserException {
+        if (ObjectUtils.notEqual(this.parser, null)) {
+            return this.parser.parse(this.nodeFilter);
+        } else {
+            return null;
+        }
+    }
 
 }

@@ -43,27 +43,6 @@ public class HttpClientUtilsTest {
     protected transient final static Log logger = LogFactory.getLog(HttpClientUtilsTest.class);
 
     @Test
-    public void testGetReposeByGet() {
-
-        try {
-            HttpResponse response = HttpClientUtils.getResponse("http://image.baidu.com/data/imgs?pn=18&rn=18&col=%E5%A3%81%E7%BA%B8&tag=%E5%85%A8%E9%83%A8&tag3=&width=1280&height=800&ic=0&ie=utf8&oe=utf-8&image_id=&fr=channel&p=channel&from=1&app=img.browse.channel.wallpaper&t=0.5780109583865851", null, HttpPost.METHOD_NAME);
-            if (response.getStatusLine().getStatusCode() == 200) {
-                String entity = EntityUtils.toString(response.getEntity(), "utf-8");
-//                entity = entity.substring(entity.indexOf("<body>"), entity.indexOf("</body>"));
-                List<String> imgURL = ParserHTMLUtil.getImageSrc(ParserHTMLUtil.getImageUrl(entity));
-                for (String src : imgURL) {
-                    logger.debug("图片地址：" + src);
-                }
-//                logger.debug(entity);
-
-            }
-        } catch (IOException e) {
-            e.printStackTrace();
-        }
-
-    }
-
-    @Test
     public void downLoadImageByImageURL() {
         String url = "http://image.baidu.com/data/imgs?pn=0&rn=18&col=%E5%A3%81%E7%BA%B8&tag=%E5%85%A8%E9%83%A8&tag3=&width=1280&height=800&ic=0&ie=utf8&oe=utf-8&image_id=&fr=channel&p=channel&from=1&app=img.browse.channel.wallpaper&t=0.4825903191231191";
         JSONObject jsonObject = HttpClientUtils.getJSONObject(url, null, HttpGet.METHOD_NAME);
