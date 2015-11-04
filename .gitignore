@@ -1,0 +1,7 @@
+*.class
+target/classes/com/channelsoft/codeset/property/jdbc.properties
+target/classes/com/channelsoft/codeset/property/redis.properties
+target/classes/log4j.xml
+target/CodeSet/WEB-INF/classes/log4j.xml
+target/CodeSet/META-INF/MANIFEST.MF
+target/CodeSet/codeset/test.html
