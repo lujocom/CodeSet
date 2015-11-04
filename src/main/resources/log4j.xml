@@ -15,7 +15,7 @@
 		</layout>
 	</appender>
 
-	<logger name="com.channelsoft.codeset">
+	<logger name="com.luohui">
 		<level value="DEBUG"/>
 		<appender-ref ref="FILE"/>
 	</logger>
