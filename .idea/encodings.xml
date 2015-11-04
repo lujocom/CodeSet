@@ -6,6 +6,7 @@
     <file url="file://$PROJECT_DIR$/src/main/resources/log4j.xml" charset="UTF-8" />
     <file url="file://$PROJECT_DIR$/src/main/resources/spring/spring-service.xml" charset="UTF-8" />
     <file url="file://$PROJECT_DIR$/src/main/webapp/WEB-INF/dispatch-servlet.xml" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/src/main/webapp/resource/lib/jquery" charset="GBK" />
     <file url="PROJECT" charset="UTF-8" />
   </component>
 </project>
