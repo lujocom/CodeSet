@@ -311,12 +311,6 @@
             <version>1.6.0.RELEASE</version>
         </dependency>
 
-        <dependency>
-            <groupId>org.springframework.data</groupId>
-            <artifactId>spring-data-mongodb</artifactId>
-            <version>1.8.0.RELEASE</version>
-        </dependency>
-
         <!-- 事务配置 -->
         <dependency>
             <groupId>cglib</groupId>
