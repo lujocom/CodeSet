@@ -47,7 +47,6 @@
         <servlet-name>dispatch</servlet-name>
         <url-pattern>*.shtml</url-pattern>
     </servlet-mapping>
-
     <servlet-mapping>
         <servlet-name>dispatch</servlet-name>
         <url-pattern>*.html</url-pattern>
