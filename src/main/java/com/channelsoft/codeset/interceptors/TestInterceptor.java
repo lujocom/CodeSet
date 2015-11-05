@@ -28,9 +28,6 @@ public class TestInterceptor implements HandlerInterceptor {
 
         logger.debug("preHandle---*.shtml进入拦截器");
 
-
-
-
         return true;
     }
 
