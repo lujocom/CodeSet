@@ -21,7 +21,7 @@
 	<mvc:interceptors>
 		<mvc:interceptor>
 			<mvc:mapping path="/**/test/**/*.shtml"/>
-            <bean class="com.channelsoft.codeset.interceptors.TestInterceptor"></bean>
+            <bean class="com.channelsoft.codeset.interceptors.TestInterceptor"/>
 		</mvc:interceptor>
 	</mvc:interceptors>
 
