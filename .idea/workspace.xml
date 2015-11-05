@@ -1,13 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="bb186425-e5a2-4002-a1ac-7b54c585e895" name="Default" comment="">
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/com/channelsoft/codeset/interceptors/TestInterceptor.java" afterPath="$PROJECT_DIR$/src/main/java/com/channelsoft/codeset/interceptors/TestInterceptor.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/webapp/WEB-INF/dispatch-servlet.xml" afterPath="$PROJECT_DIR$/src/main/webapp/WEB-INF/dispatch-servlet.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/webapp/codeset/login.html" afterPath="$PROJECT_DIR$/src/main/webapp/codeset/login.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/webapp/codeset/test.html" afterPath="$PROJECT_DIR$/src/main/webapp/codeset/test.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-    </list>
+    <list default="true" id="bb186425-e5a2-4002-a1ac-7b54c585e895" name="Default" comment="" />
     <ignored path="CodeSet.iws" />
     <ignored path=".idea/workspace.xml" />
     <ignored path="$PROJECT_DIR$/out/" />
@@ -1398,7 +1392,7 @@
       <workItem from="1446364551370" duration="13911000" />
       <workItem from="1446519672593" duration="201000" />
       <workItem from="1446642712398" duration="5147000" />
-      <workItem from="1446701947916" duration="361000" />
+      <workItem from="1446701947916" duration="395000" />
     </task>
     <task id="LOCAL-00001" summary="添加下载图片以及解析html工具类">
       <created>1446385749883</created>
@@ -1410,7 +1404,7 @@
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="19620000" />
+    <option name="totallyTimeSpent" value="19654000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="4" y="23" width="1276" height="777" extended-state="6" />
