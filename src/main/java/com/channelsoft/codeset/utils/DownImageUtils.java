@@ -1,5 +1,6 @@
 package com.channelsoft.codeset.utils;
 
+import org.apache.commons.lang.ObjectUtils;
 import org.apache.commons.lang3.StringUtils;
 import org.apache.commons.logging.Log;
 import org.apache.commons.logging.LogFactory;
@@ -10,6 +11,9 @@ import org.apache.http.client.methods.HttpGet;
 import java.io.File;
 import java.io.FileOutputStream;
 import java.io.IOException;
+import java.util.List;
+import java.util.concurrent.ExecutorService;
+import java.util.concurrent.Executors;
 
 /**
  * <dl>
@@ -25,6 +29,11 @@ import java.io.IOException;
 public class DownImageUtils {
     protected transient final static Log logger = LogFactory.getLog(DownImageUtils.class);
 
+    /**
+     * 单线程下载图片
+     * @param url
+     * @param path
+     */
     public static void downloadImg(String url, String path) {
         if (StringUtils.isBlank(url)) {
             return;
@@ -46,6 +55,27 @@ public class DownImageUtils {
             e.printStackTrace();
         }
 
+    }
+
+    /**
+     * 多线程下载图片
+     * @param urlList 图片数组
+     * @param path 本地图片存放路径
+     */
+    public static void downloadImgs(List<String> urlList,final String path) {
+        if(ObjectUtils.equals(urlList, null) || StringUtils.isBlank(path)){
+            return ;
+        }
+
+        ExecutorService executorService = Executors.newFixedThreadPool(8);
+        for (final String item : urlList){
+            executorService.execute(new Runnable() {
+                @Override
+                public void run() {
+                    downloadImg(item, path);
+                }
+            });
+        }
     }
 
 }
