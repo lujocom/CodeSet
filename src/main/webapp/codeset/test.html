@@ -3,8 +3,100 @@
 <head>
     <meta charset="UTF-8">
     <title></title>
+    <meta name="viewport"
+          content="width=device-width,initial-scale=1,minimum-scale=1.0,maximum-scale=1.0"/>
+    <style>
+        .but {
+            display: inline-block;
+            padding: 6px 12px;
+            margin-bottom: 0;
+            font-size: 16px;
+            font-weight: 400;
+            line-height: 1.42857143;
+            text-align: center;
+            white-space: nowrap;
+            text-overflow: ellipsis;
+            vertical-align: middle;
+            overflow: hidden;
+            -ms-touch-action: manipulation;
+            touch-action: manipulation;
+            cursor: pointer;
+            -webkit-user-select: none;
+            -moz-user-select: none;
+            -ms-user-select: none;
+            user-select: none;
+            width: 200px;
+            color: #fff;
+            background: #00B89C;
+            margin-top: 10px;
+        }
+
+        .w_pre {
+            white-space: pre;
+            font-family: "微软雅黑", "宋体", Arial;
+            overflow: hidden;
+        }
+        .d_content {
+            font-size: 15px;
+            color: #484848;
+            word-wrap: break-word;
+            line-height: 20px;
+        }
+    </style>
 </head>
 <body>
-hello world test page
+hello world test
+<a class="but" onclick="callChinaUnicom()">打电话</a>
+<pre id="content" class="w_pre d_content"></pre>
+<pre id="limit" class="w_pre d_content"></pre>
+<pre>
+    hello
+    world
+    ceshi
+</pre>
+
 </body>
+<script type="text/javascript">
+    var data = {
+        "late": 0,
+        "wap": {
+            "id": "f779c671dfed44d993308f9bb3193224",
+            "imagePath": "resource/image/common/wapDFImage.png",
+            "title": " 测试转义符",
+            "content": " 测试转义符 测试转义符 测试转义符\\r\\n 测试转义符 测试转义符 测试转义符\\r\\n 测试转义符 测试转义符 测试转义符\\r\\n 测试转义符 测试转义符 测试转义符",
+            "showComInfo": "0",
+            "showAddress": "1",
+            "items": [],
+            "couponType": 1,
+            "couponDetail": "10"
+        },
+        "activity": {
+            "id": "9c7cb97a583f4d6398385b0e5aad97d1",
+            "shareObtain": "0",
+            "useLimitDetails": "1、周末及节假日不可使用    \r\n2、每次限制使用1张优惠券   \r\n3、消费满100可使用 \r\n\t\t\t",
+            "useLimit": "0",
+            "lotteryLimit": "0",
+            "lotteryNum": "0"
+        },
+        "company": {
+            "domainHacks": "1433487834831",
+            "tel": "85113707",
+            "address": "成华区欣然二街",
+            "companyIntroduce": ""
+        },
+        "remainCoupons": "-1",
+        "useStartTime": "2015-12-15",
+        "useEndTime": "2016-01-02",
+        "shareSuccess": 0,
+        "shared": 2,
+        "returnCode": "00",
+        "returnMsg": "获取优惠详情发生成功！"
+    };
+    function callChinaUnicom() {
+        document.getElementById('content').innerHTML =data.wap.content;
+        document.getElementById('limit').innerHTML =data.activity.useLimitDetails;
+
+
+    }
+</script>
 </html>

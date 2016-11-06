@@ -9,14 +9,14 @@
 		http://www.springframework.org/schema/util http://www.springframework.org/schema/util/spring-util.xsd http://www.springframework.org/schema/tx http://www.springframework.org/schema/tx/spring-tx.xsd http://www.springframework.org/schema/mvc http://www.springframework.org/schema/mvc/spring-mvc.xsd">
 
     <context:annotation-config />
-    <context:component-scan base-package="com.channelsoft.*.redis" />
+    <context:component-scan base-package="com.selfstudy.codeset.*.redis" />
 
     <bean id="redisPropertyConfigurer" class="org.springframework.beans.factory.config.PropertyPlaceholderConfigurer">
         <property name="order" value="1" />
         <property name="ignoreUnresolvablePlaceholders" value="true" />
         <property name="locations" >
             <list>
-                <value>classpath:com/channelsoft/codeset/property/redis.properties</value>
+                <value>classpath:com/selfstudy/codeset/property/redis.properties</value>
             </list>
         </property>
     </bean>

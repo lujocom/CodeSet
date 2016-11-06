@@ -10,14 +10,14 @@
 
     <!-- 开启注解配置 -->
     <context:annotation-config/>
-    <context:component-scan base-package="com.channelsoft.*.dao"/>
+    <context:component-scan base-package="com.selfstudy.*.dao"/>
 
     <bean id="dbPropertyConfigurer" class="org.springframework.beans.factory.config.PropertyPlaceholderConfigurer">
         <property name="order" value="1" />
         <property name="ignoreUnresolvablePlaceholders" value="true" />
         <property name="locations" >
             <list>
-                <value>classpath:com/channelsoft/codeset/property/jdbc.properties</value>
+                <value>classpath:com/selfstudy/codeset/property/jdbc.properties</value>
             </list>
         </property>
     </bean>

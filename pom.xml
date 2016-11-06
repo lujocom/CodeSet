@@ -15,7 +15,11 @@
             <artifactId>jsoup</artifactId>
             <version>1.7.3</version>
         </dependency>
-
+        <dependency>
+            <groupId>jaxen</groupId>
+            <artifactId>jaxen</artifactId>
+            <version>1.1.1</version>
+        </dependency>
         <!--<dependency>
           <groupId>org.ansj</groupId>
           <artifactId>ansj-seg</artifactId>
@@ -55,12 +59,11 @@
             <version>1.2</version>
         </dependency>
 
-        <!-- <dependency>
+         <!--<dependency>
            <groupId>javax.servlet</groupId>
            <artifactId>javax.servlet-api</artifactId>
            <version>3.1.0</version>
-         </dependency>
-     -->
+         </dependency>-->
         <!-- <dependency>
              <groupId>javax.servlet</groupId>
              <artifactId>servlet-api</artifactId>
@@ -159,11 +162,11 @@
             <artifactId>spring-webmvc</artifactId>
             <version>4.1.6.RELEASE</version>
         </dependency>
-        <dependency>
+        <!--<dependency>
             <groupId>org.springframework</groupId>
             <artifactId>spring-webmvc-portlet</artifactId>
             <version>4.1.6.RELEASE</version>
-        </dependency>
+        </dependency>-->
         <dependency>
             <groupId>org.springframework</groupId>
             <artifactId>spring-context</artifactId>
@@ -270,17 +273,17 @@
             <artifactId>mybatis</artifactId>
             <version>3.2.7</version>
         </dependency>
-        <!--缓存-->
-        <dependency>
-            <groupId>org.mybatis.caches</groupId>
-            <artifactId>mybatis-redis</artifactId>
-            <version>1.0.0-beta1</version>
-        </dependency>
-        <dependency>
-            <groupId>redis.clients</groupId>
-            <artifactId>jedis</artifactId>
-            <version>2.7.2</version>
-        </dependency>
+        <!--  &lt;!&ndash;缓存&ndash;&gt;
+          <dependency>
+              <groupId>org.mybatis.caches</groupId>
+              <artifactId>mybatis-redis</artifactId>
+              <version>1.0.0-beta1</version>
+          </dependency>-->
+          <dependency>
+              <groupId>redis.clients</groupId>
+              <artifactId>jedis</artifactId>
+              <version>2.7.2</version>
+          </dependency>
         <dependency>
             <groupId>javax.transaction</groupId>
             <artifactId>javax.transaction-api</artifactId>
@@ -310,12 +313,27 @@
             <artifactId>spring-data-redis</artifactId>
             <version>1.6.0.RELEASE</version>
         </dependency>
-
+        <!--
+                <dependency>
+                    <groupId>org.springframework.data</groupId>
+                    <artifactId>spring-data-mongodb</artifactId>
+                    <version>1.8.0.RELEASE</version>
+                </dependency>-->
         <dependency>
             <groupId>org.springframework.data</groupId>
-            <artifactId>spring-data-mongodb</artifactId>
-            <version>1.8.0.RELEASE</version>
+            <artifactId>spring-data-jpa</artifactId>
+            <version>1.8.2.RELEASE</version>
         </dependency>
+        <!--<dependency>
+            <groupId>javax.persistence</groupId>
+            <artifactId>persistence-api</artifactId>
+            <version>1.0</version>
+        </dependency>
+        <dependency>
+            <groupId>javax.annotation</groupId>
+            <artifactId>jsr250-api</artifactId>
+            <version>1.0</version>
+        </dependency>-->
 
         <!-- 事务配置 -->
         <dependency>
@@ -335,17 +353,41 @@
             <version>1.2</version>
         </dependency>
 
-        <dependency>
+        <!--<dependency>
             <groupId>org.htmlparser</groupId>
             <artifactId>htmlparser</artifactId>
             <version>2.1</version>
-        </dependency>
+        </dependency>-->
 
         <dependency>
             <groupId>org.freemarker</groupId>
             <artifactId>freemarker</artifactId>
             <version>2.3.20</version>
         </dependency>
+
+       <!-- <dependency>
+            <groupId>org.seleniumhq.selenium</groupId>
+            <artifactId>selenium-java</artifactId>
+            <version>2.47.1</version>
+        </dependency>-->
+
+        <!--<dependency>
+            <groupId>org.tmatesoft.svnkit</groupId>
+            <artifactId>svnkit</artifactId>
+            <version>1.8.11</version>
+        </dependency>
+
+        <dependency>
+            <groupId>org.mongodb</groupId>
+            <artifactId>mongo-java-driver</artifactId>
+            <version>3.2.0</version>
+        </dependency>
+
+        <dependency>
+            <groupId>org.apache.zookeeper</groupId>
+            <artifactId>zookeeper</artifactId>
+            <version>3.4.8</version>
+        </dependency>-->
 
 
     </dependencies>

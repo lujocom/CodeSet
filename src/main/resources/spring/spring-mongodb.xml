@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xmlns:mongo="http://www.springframework.org/schema/data/mongo"
+       xmlns:context="http://www.springframework.org/schema/context" xmlns:tx="http://www.springframework.org/schema/tx"
+       xmlns:jpa="http://www.springframework.org/schema/data/jpa"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd http://www.springframework.org/schema/data/mongo http://www.springframework.org/schema/data/mongo/spring-mongo.xsd http://www.springframework.org/schema/context http://www.springframework.org/schema/context/spring-context.xsd http://www.springframework.org/schema/tx http://www.springframework.org/schema/tx/spring-tx.xsd http://www.springframework.org/schema/data/jpa http://www.springframework.org/schema/data/jpa/spring-jpa.xsd">
+
+    <context:property-placeholder location="classpath:/com/selfstudy/codeset/property/mongodb.properties"/>
+
+    <!-- 通过工厂Bean创建mongo连接实例,没有密码就把username和password属性删除了-->
+    <mongo:db-factory host="${db.host}" port="${db.port}" dbname="${db.database}"
+                      username="${db.username}" password="${db.password}"/>
+
+
+    <!-- mongo模板操作对象 -->
+    <bean id="mongoTemplate" class="org.springframework.data.mongodb.core.MongoTemplate">
+        <constructor-arg name="mongoDbFactory" ref="mongoDbFactory"/>
+    </bean>
+
+    <!-- MongoDB GridFS Template 支持，操作mongodb存放的文件 -->
+    <mongo:mapping-converter id="converter" db-factory-ref="mongoDbFactory"/>
+    <bean id="gridFsTemplate" class="org.springframework.data.mongodb.gridfs.GridFsTemplate">
+        <constructor-arg ref="mongoDbFactory"/>
+        <constructor-arg ref="converter"/>
+    </bean>
+
+    <jpa:repositories base-package="com.channelsoft.codeset.dao"/>
+
+    <!-- 使用annotation定义事务 -->
+    <tx:annotation-driven transaction-manager="transactionManager"/>
+
+    <!-- 扫描实现 -->
+    <!--<context:component-scan base-package="com.channelsoft.codeset.dao"/>-->
+
+    <!-- To translate any MongoExceptions thrown in @Repository annotated classes -->
+    <context:annotation-config/>
+
+
+</beans>
